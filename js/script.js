@@ -4,6 +4,14 @@ var unidades;
 var dezenas;
 var centenas;
 
+window.onload = function()
+{
+    let btngo = document.getElementById("go");
+    btngo.onclick = function(){
+        extenso();
+    } 
+}
+
 function testaValor(val)
 {
     if (val < 0) {
@@ -13,49 +21,55 @@ function testaValor(val)
 
 extensoCentena(val, cent)
 {
+    var result = "";
     if (val % 1000 == 100)
-        return "Cem"
-    switch (cent) {
-        case 100:
-            return "cento"
-            break;
+    {
+        result = "Cem";
+    } else 
+    {
+        switch (cent) {
+            case 100:
+                result = "cento"
+                break;
 
-        case 200:
-            return "duzentos"
-            break;
+            case 200:
+                result = "duzentos"
+                break;
 
-        case 300:
-            return "trezentos"
-            break;
+            case 300:
+                result = "trezentos"
+                break;
 
-        case 400:
-            return "quatrocentos"
-            break;
+            case 400:
+                result = "quatrocentos"
+                break;
 
-        case 500:
-            return "quinhentos"
-            break;
+            case 500:
+                result = "quinhentos"
+                break;
 
-        case 600:
-            return "seiscentos"
-            break;
+            case 600:
+                result = "seiscentos"
+                break;
 
-        case 700:
-            return "setecentos"
-            break;
+            case 700:
+                result = "setecentos"
+                break;
 
-        case 800:
-            return "oitocentos"
-            break;
+            case 800:
+                result = "oitocentos"
+                break;
 
-        case 900:
-            return "novecentos"
-            break;
+            case 900:
+                result = "novecentos"
+                break;
         
-    
-        default:
-            break;
+            default:
+                break;
+        }
     }
+
+    return result;
 }
 
 extensoDezena(dez)
