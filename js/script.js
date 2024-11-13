@@ -73,6 +73,106 @@ function extensoCentena(val, cent)
 
 function extensoDezena(val, deze)
 {
+    var result = "";
+    switch (deze) {
+        case 90:
+            result = "noventa"
+            break;
+        case 80:
+            result = "oitenta"
+            break;
+        case 70:
+            result = "setenta"
+            break;
+        case 60:
+            result = "sessenta"
+            break;
+        case 50:
+            result = "cinquenta"
+            break;
+        case 40:
+            result = "quarenta"
+            break;
+        case 30:
+            result = "trinta"
+            break;
+        case 20:
+            result = "vinte"
+            break;
+        default:
+            break;
+    }
+    
+    return result;
+}
+
+function extensoUnidade(val, unid)
+{
+    var result = "";
+
+    switch (unid) {
+        case 19:
+            result = "dezenove";
+            break;
+        case 18:
+            result = "dezoito";
+            break;
+        case 17:
+            result = "dezessete";
+            break;
+        case 16:
+            result = "dezesseis";
+            break;
+        case 15:
+            result = "quinze";
+            break;
+        case 14:
+            result = "quatorze";
+            break;
+        case 13:
+            result = "treze";
+            break;
+        case 12:
+            result = "doze";
+            break;
+        case 11:
+            result = "onze";
+            break;
+        case 10:
+            result = "dez";
+            break;
+        case 9:
+            result = "nove";
+            break;
+        case 8:
+            result = "oito";
+            break;
+        case 7:
+            result = "sete";
+            break;
+        case 6:
+            result = "seis";
+            break;
+        case 5:
+            result = "cinco";
+            break;
+        case 4:
+            result = "quatro";
+            break;
+        case 3:
+            result = "três";
+            break;
+        case 2:
+            result = "dois";
+            break;
+        case 1:
+            result = "um";
+            break;
+        default:
+            break;
+    }
+
+    return result;
 
 }
 
@@ -89,16 +189,23 @@ function extenso()
     centenas = (valor % 1000) - dezenas - unidades;
 
     resultado = extensoCentena(valor, centenas);
-    if ((centenas - dezenas) >= 10)
+    if ((valor % 100) >= 20)
     {
         // acrescenta "e" e chama dezenas ate 10
-    } else if ((centenas - dezenas) > 0) 
+        resultado += " e ";
+        resultado += extensoDezena(valor, dezenas);
+    } else if ((valor % 100) > 0) 
     {
         // acrescenta "e" e chama unidades ate 9
+        resultado += " e ";
+        resultado += extensoUnidade(valor, (valor % 100));
+    } 
+    if (unidades > 0 && (valor % 100) >= 20) 
+    {
+        resultado += " e ";
+        resultado += extensoUnidade(valor, unidades);
     }
 
-    
-    //resultado += extensoDezena(dezenas);
 
     document.getElementById("result").innerText = resultado;
 }
