@@ -1,4 +1,4 @@
-const valor = document.getElementById("valor").value;
+
 
 var unidades;
 var dezenas;
@@ -19,7 +19,7 @@ function testaValor(val)
     }
 }
 
-extensoCentena(val, cent)
+function extensoCentena(val, cent)
 {
     var result = "";
     if (val % 1000 == 100)
@@ -72,7 +72,7 @@ extensoCentena(val, cent)
     return result;
 }
 
-extensoDezena(dez)
+function extensoDezena(dez)
 {
 
 }
@@ -80,6 +80,8 @@ extensoDezena(dez)
 
 function extenso()
 {
+    const valor = parseInt(document.getElementById("valor").value);
+    
     testaValor(valor);
     var resultado = "";
     
