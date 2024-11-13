@@ -1,9 +1,8 @@
-
-
 var unidades;
 var dezenas;
 var centenas;
 
+// Inicia com o clique no go
 window.onload = function()
 {
     let btngo = document.getElementById("go");
@@ -72,12 +71,12 @@ function extensoCentena(val, cent)
     return result;
 }
 
-function extensoDezena(dez)
+function extensoDezena(val, deze)
 {
 
 }
 
-
+// função principal
 function extenso()
 {
     const valor = parseInt(document.getElementById("valor").value);
@@ -90,6 +89,15 @@ function extenso()
     centenas = (valor % 1000) - dezenas - unidades;
 
     resultado = extensoCentena(valor, centenas);
+    if ((centenas - dezenas) >= 10)
+    {
+        // acrescenta "e" e chama dezenas ate 10
+    } else if ((centenas - dezenas) > 0) 
+    {
+        // acrescenta "e" e chama unidades ate 9
+    }
+
+    
     //resultado += extensoDezena(dezenas);
 
     document.getElementById("result").innerText = resultado;
