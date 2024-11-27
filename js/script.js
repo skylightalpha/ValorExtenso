@@ -188,25 +188,28 @@ function extenso()
     dezenas = (valor % 100) - unidades;
     centenas = (valor % 1000) - dezenas - unidades;
 
+    // resultado recebe as centenas
     resultado = extensoCentena(valor, centenas);
+    // se as dezenas forem maiores que 20 entraram normalmente na função de dezenas
     if ((valor % 100) >= 20)
     {
         // acrescenta "e" e chama dezenas ate 10
         resultado += " e ";
         resultado += extensoDezena(valor, dezenas);
-    } else if ((valor % 100) > 0) 
+    } else if ((valor % 100) > 0) // menor que 20 entrar na função unidades também
     {
         // acrescenta "e" e chama unidades ate 9
         resultado += " e ";
         resultado += extensoUnidade(valor, (valor % 100));
     } 
+    // Agora a função unidade para menores que 9
     if (unidades > 0 && (valor % 100) >= 20) 
     {
         resultado += " e ";
         resultado += extensoUnidade(valor, unidades);
     }
 
-
+    // Mostra o resultado
     document.getElementById("result").innerText = resultado;
 }
 
